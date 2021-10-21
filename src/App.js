@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-import List from './CardList.mjs';
-import Input from './Input.mjs';
+import List from './CardList.js';
+import Input from './Input.js';
 
 const App = () => {
   const [list, setList] = useState(JSON.parse(localStorage.getItem('list')) || []);
@@ -19,10 +19,10 @@ const App = () => {
   }, [list]);
 
   return (
-    React.createElement('div', { className: 'container antialiased mx-auto max-w-screen-sm' },
-      React.createElement(Input, { onAddPost }),
-      React.createElement(List, { list, onDeletePost }),
-    )
+    <div className="container antialiased mx-auto max-w-screen-sm">
+      <Input onAddPost={onAddPost} />
+      <List list={list} onDeletePost={onDeletePost} />
+    </div>
   );
 }
 

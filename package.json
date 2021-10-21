@@ -1,20 +1,22 @@
 {
   "name": "bunnsolid-js",
   "version": "1.0.0",
-  "main": "src/index.mjs",
+  "main": "src/index.js",
   "scripts": {
     "start": "python -m SimpleHTTPServer",
-    "build": "webpack --mode=production"
+    "build": "webpack --mode=production --no-stats"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "core-js": "^3.18.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.8",
     "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
     "babel-loader": "^8.2.3",
     "webpack": "^5.59.1",
     "webpack-cli": "^4.9.1"
