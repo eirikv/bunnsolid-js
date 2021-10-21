@@ -7,7 +7,7 @@ const CardList = (props) => {
 
   return (
     <ul className="space-y-4 mt-5">
-      {list.reverse().map(item => (
+      {list.map(item => (
         <Card key={item.title} onDelete={onDeletePost} {...item } />
       ))}
     </ul>
