@@ -8,8 +8,12 @@ const Input = (props) => {
   const [state, setState] = useState(INITIAL_STATE);
   const { title, text } = state;
 
-  const onChange = (e) => { setState({ ...state, [e.target.name]: e.target.value }); };
   const onReset = () => { setState(INITIAL_STATE); };
+  const onChange = (e) => {
+    if (e.target.value.length <= 300) {
+      setState({ ...state, [e.target.name]: e.target.value });
+    }
+  };
   const onSubmit = (e) => {
     e.preventDefault();
     if (title.trim() && text.trim()) {
