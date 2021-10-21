@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'https://esm.sh/react@17'
+import React, { useState, useEffect } from 'react'
 
 import List from './CardList.mjs';
 import Input from './Input.mjs';

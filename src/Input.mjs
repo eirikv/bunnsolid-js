@@ -1,4 +1,4 @@
-import React, { useState } from 'https://esm.sh/react@17'
+import React, { useState } from 'react'
 
 const INITIAL_STATE = { title: '', text: '' };
 

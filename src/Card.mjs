@@ -1,4 +1,4 @@
-import React from 'https://esm.sh/react@17'
+import React from 'react'
 
 const Card = (props) => {
   const { title, text, time, onDelete } = props;
