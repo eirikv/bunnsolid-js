@@ -1,22 +1,29 @@
 import React, { useState } from 'https://esm.sh/react@17'
 
+const INITIAL_STATE = { title: '', text: '' };
+
 const Input = (props) => {
   const { onAddPost } = props;
 
-  const [title, setTitle] = useState('');
-  const [text, setText] = useState('');
+  const [state, setState] = useState(INITIAL_STATE);
+  const { title, text } = state;
+
+  const onChange = (e) => { setState({ ...state, [e.target.name]: e.target.value }); };
+  const onReset = () => { setState(INITIAL_STATE); };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (title.trim() && text.trim()) {
+      onAddPost({ title, text });
+      onReset();
+    }
+  }
 
   return (
     React.createElement(
       'form',
       {
         className: 'editor mx-auto flex flex-col text-gray-800 border rounded-lg p-4 max-w-2xl mt-5',
-        onSubmit: (e) => {
-          e.preventDefault();
-          if (title.trim() && text.trim()) {
-            onAddPost({ title, text });
-          }
-        }
+        onSubmit,
       },
       React.createElement(
         'input',
@@ -24,9 +31,10 @@ const Input = (props) => {
           className: 'title bg-gray-100 border border-gray-300 p-2 mb-4 outline-none',
           spellCheck: 'false',
           placeholder: 'Title',
+          name: 'title',
           type: 'text',
           value: title,
-          onChange: (e) => { setTitle(e.target.value); }
+          onChange,
         },
       ),
       React.createElement(
@@ -34,13 +42,10 @@ const Input = (props) => {
         {
           className: 'description bg-gray-100 sec p-3 h-60 border border-gray-300 outline-none',
           spellCheck: 'false',
+          name: 'text',
           placeholder: 'Write something',
           value: text,
-          onChange: (e) => {
-            if (e.target.value.length <= 300) {
-              setText(e.target.value);
-            }
-          }
+          onChange,
         },
       ),
       React.createElement(
@@ -60,10 +65,7 @@ const Input = (props) => {
           {
             type: 'button',
             className: 'btn border border-gray-300 p-1 px-4 font-semibold cursor-pointer text-gray-500 ml-auto',
-            onClick: () => {
-              setTitle('');
-              setText('');
-            }
+            onClick: onReset,
           },
           'Cancel',
         ),

@@ -6,7 +6,7 @@ const CardList = (props) => {
   const { list, onDeletePost } = props;
 
   return (
-    React.createElement('ul', { className: 'space-y-4 mt-5' }, list.map(item => (
+    React.createElement('ul', { className: 'space-y-4 mt-5' }, list.reverse().map(item => (
       React.createElement(Card, { key: item.title, onDelete: onDeletePost, ...item })
     )))
   );
