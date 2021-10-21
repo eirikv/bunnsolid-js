@@ -1,7 +1,7 @@
 {
   "name": "bunnsolid-js",
   "version": "1.0.0",
-  "main": "index.mjs",
+  "main": "src/index.mjs",
   "scripts": {
     "start": "python -m SimpleHTTPServer"
   },
