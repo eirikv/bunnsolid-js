@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.mjs",
   "scripts": {
-    "start": "python -m SimpleHTTPServer"
+    "start": "npx http-server"
   },
   "author": "",
   "license": "ISC",
