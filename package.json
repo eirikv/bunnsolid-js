@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "start": "python -m SimpleHTTPServer",
+    "start": "npx http-server",
     "build": "webpack --mode=production --no-stats"
   },
   "author": "",
